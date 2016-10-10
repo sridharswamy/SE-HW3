@@ -2,6 +2,7 @@
     <head>
         <title> SE Twitter Homework </title>
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -18,57 +19,22 @@
                     <div class="tweet-container">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <ul class="media-list">
-
+                                <ul class="media-list" data-bind="foreach: people">
                                     <li class="media">
                                         <a href="#" class="pull-left">
-                                            <img border="2" height="50px" width="50px" src="img/sridhar.jpg" alt="">
+                                            <img height="50px" width="50px" data-bind="attr:{src: $data.profileImage}" alt="">
                                         </a>
                                         <div class="media-body">
-                                            <b>Sridhar Swamy</b>
-                                            <span class="text-muted"> @sridharswamy </span>
+                                            <b data-bind="text: $data.name"></b>
+    										<span class="text-muted" data-bind="text: $data.twitterhandle"> </span>
                                             <span class="text-muted"> . </span>
-                                            <span class="text-muted"> 1m </span>
-                                            <p>
-                                                Why so serious? Let's put a smile on your face! 
-                                                <a href="">#Joker #Wallpaper #Favourite</a>
+                                            <span class="text-muted" data-bind="text: $data.time"> </span>
+                                            <p data-bind="text: $data.tweetText">	
                                             </p>
-                                          <img src="img/joker.jpg" width="600px" height="300px"/>
+                                            <img data-bind="visible: $data.mediaImage != null, attr:{src: $data.mediaImage}" width="500" height="300"/>
                                         </div>
                                     </li>
                                   	<hr/>
-
-                                    <li class="media">
-                                        <a href="#" class="pull-left">
-                                            <img height="50px" width="50px" src="img/sridhar.jpg" alt="">
-                                        </a>
-                                        <div class="media-body">
-                                            <b>Sridhar Swamy</b>
-    										<span class="text-muted"> @sridharswamy </span>
-                                            <span class="text-muted"> . </span>
-                                            <span class="text-muted"> 45m </span>
-                                            <p>
-                                            	Have been working on this assignment for almost 2 hours now. Prior bootstrap knowledge starting to pay off! |m| <a>#LetsDoThis</a>
-                                            </p>
-                                        </div>
-                                    </li>
-                                  	<hr/>
-
-                                    <li class="media">
-                                        <a href="#" class="pull-left">
-                                            <img height="50px" width="50px" src="img/sridhar.jpg" alt="">
-                                        </a>
-                                        <div class="media-body">
-                                            <b>Sridhar Swamy</b>
-    										<span class="text-muted"> @sridharswamy </span>
-                                            <span class="text-muted"> . </span>
-                                            <span class="text-muted"> 3h </span>
-                                            <p>
-                                            	Starting to design a mock template for a Twitter newsfeed. <a>#GraduateLife</a>
-                                            </p>
-                                        </div>
-                                    </li>
-
                                 </ul>
                             </div>
                         </div>
@@ -78,3 +44,18 @@
         </div>
     </body>
 </html>
+
+<script type="text/javascript">
+function AppViewModel() {
+    var self = this;
+ 
+    self.people = ko.observableArray([
+        { name: 'Sridhar Swamy', twitterhandle: '@sridharswamy', profileImage: 'img/sridhar.jpg', time: '45m', tweetText: 'Why so serious? Let\'s put a smile on your face! #Joker', mediaImage: 'img/joker.jpg' },
+        { name: 'Sridhar Swamy', twitterhandle: '@sridharswamy', profileImage: 'img/sridhar.jpg', time: '3h', tweetText: 'Starting to design a mock template for a Twitter newsfeed. #GraduateLife', mediaImage: null },
+        { name: 'Sridhar Swamy', twitterhandle: '@sridharswamy', profileImage: 'img/sridhar.jpg', time: '1h', tweetText: 'Have been working on this assignment for almost 2 hours now. Prior bootstrap knowledge starting to pay off! |m| #LetsDoThis', mediaImage: null },
+    ]);
+ 
+}
+ 
+ko.applyBindings(new AppViewModel());
+</script>
