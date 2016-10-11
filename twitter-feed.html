@@ -34,7 +34,7 @@
                                             <img data-bind="visible: $data.mediaImage != null, attr:{src: $data.mediaImage}" width="500" height="300"/>
                                             <div class="row">
                                                 <div class="col-md-2">
-                                                    <a><img src="img/reply.png" width=20 height=20> &nbsp; <span class="text-muted" data-bind="text: $data.reply"> </span> </a>
+                                                    <a><img src="img/reply.png" width=20 height=20> &nbsp; </a>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <a> <img src="img/retweet.png" width=20 height=20> &nbsp; <span class="text-muted" data-bind="text: $data.retweet"> </span> </a>
@@ -62,9 +62,9 @@
 function AppViewModel() {
     var self = this;
     self.people = ko.observableArray([
-        { name: 'Sridhar Swamy', twitterhandle: '@sridharswamy', profileImage: 'img/sridhar.jpg', time: '45m', tweetText: 'Why so serious? Let\'s put a smile on your face! #Joker', mediaImage: 'img/joker.jpg', reply : '24', retweet: '18', favourite: '57'},
-        { name: 'Sridhar Swamy', twitterhandle: '@sridharswamy', profileImage: 'img/sridhar.jpg', time: '1h', tweetText: 'Have been working on this assignment for almost 2 hours now. Prior bootstrap knowledge starting to pay off! |m| #LetsDoThis', mediaImage: null, reply : '10', retweet: '4', favourite: '8'},
-        { name: 'Sridhar Swamy', twitterhandle: '@sridharswamy', profileImage: 'img/sridhar.jpg', time: '3h', tweetText: 'Starting to design a mock template for a Twitter newsfeed. #GraduateLife', mediaImage: null, reply : '10', retweet: '', favourite: '2'}
+        { name: 'Sridhar Swamy', twitterhandle: '@sridharswamy', profileImage: 'img/sridhar.jpg', time: '45m', tweetText: 'Why so serious? Let\'s put a smile on your face! #Joker', mediaImage: 'img/joker.jpg', retweet: '18', favourite: '57'},
+        { name: 'Sridhar Swamy', twitterhandle: '@sridharswamy', profileImage: 'img/sridhar.jpg', time: '1h', tweetText: 'Have been working on this assignment for almost 2 hours now. Prior bootstrap knowledge starting to pay off! |m| #LetsDoThis', mediaImage: null, retweet: '4', favourite: '8'},
+        { name: 'Sridhar Swamy', twitterhandle: '@sridharswamy', profileImage: 'img/sridhar.jpg', time: '3h', tweetText: 'Starting to design a mock template for a Twitter newsfeed. #GraduateLife', mediaImage: null, retweet: '', favourite: '2'}
     ]);
 }
  
