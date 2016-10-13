@@ -99,9 +99,19 @@ public class WebTest
 	public void amazonRewardSoftwareChanges() throws Exception
 	{
 		driver.get("http://www.checkbox.io/studies.html");
-	
+		
 		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='status']/span[.='OPEN']/../following-sibling::div/button")));
-		List<WebElement> amazonRewardImage = driver.findElements(By.xpath("//a[@class='status']/span[.='OPEN']/../following-sibling::div/button"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[.='Software Changes Survey']/../../div[@class='award']//img")));
+		List<WebElement> buttons = driver.findElements(By.xpath("//span[.='Software Changes Survey']/../../div[@class='award']//img"));
+		
+		boolean amazonRewardImageFound = false;
+		
+		for(WebElement button: buttons){
+			String imageURL = "http://www.checkbox.io/media/amazongc-micro.jpg";
+			if(button.getAttribute("src").equals(imageURL)){
+				amazonRewardImageFound = true;
+			}
+		}
+		assertTrue(amazonRewardImageFound);
 	}	
 }
