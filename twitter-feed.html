@@ -1,8 +1,8 @@
 <html>
     <head>
         <title> SE Twitter Homework </title>
-    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -26,10 +26,10 @@
                                         </a>
                                         <div class="media-body">
                                             <b data-bind="text: $data.name"></b>
-    										<span class="text-muted" data-bind="text: $data.twitterhandle"> </span>
+                                            <span class="text-muted" data-bind="text: $data.twitterhandle"> </span>
                                             <span class="text-muted"> . </span>
                                             <span class="text-muted" data-bind="text: $data.time"> </span>
-                                            <p data-bind="text: $data.tweetText">	
+                                            <p data-bind="text: $data.tweetText">
                                             </p>
                                             <img data-bind="visible: $data.mediaImage != null, attr:{src: $data.mediaImage}" width="500" height="300"/>
                                             <div class="row">
@@ -42,12 +42,11 @@
                                                 <div class="col-md-2">
                                                     <a> <img src="img/heart.png" width=20 height=20> &nbsp; <span class="text-muted" data-bind="text: $data.favourite"> </span> </a>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </li>
 
-                                  	<hr/>
+                                    <hr/>
                                 </ul>
                             </div>
                         </div>
@@ -63,10 +62,9 @@ function AppViewModel() {
     var self = this;
     self.people = ko.observableArray([
         { name: 'Sridhar Swamy', twitterhandle: '@sridharswamy', profileImage: 'img/sridhar.jpg', time: '45m', tweetText: 'Why so serious? Let\'s put a smile on your face! #Joker', mediaImage: 'img/joker.jpg', retweet: '18', favourite: '57'},
-        { name: 'Sridhar Swamy', twitterhandle: '@sridharswamy', profileImage: 'img/sridhar.jpg', time: '1h', tweetText: 'Have been working on this assignment for almost 2 hours now. Prior bootstrap knowledge starting to pay off! |m| #LetsDoThis', mediaImage: null, retweet: '4', favourite: '8'},
-        { name: 'Sridhar Swamy', twitterhandle: '@sridharswamy', profileImage: 'img/sridhar.jpg', time: '3h', tweetText: 'Starting to design a mock template for a Twitter newsfeed. #GraduateLife', mediaImage: null, retweet: '', favourite: '2'}
+        { name: 'Mohit Nangare', twitterhandle: '@mnangare', profileImage: 'img/mohit.jpg', time: '1h', tweetText: 'One hell of a night! #CountryInn', mediaImage: null, retweet: '4', favourite: '8'},
+        { name: 'Krish Villait', twitterhandle: '@krishvillait', profileImage: 'img/krish.jpg', time: '3h', tweetText: 'Come on @ChelseaFC !', mediaImage: null, retweet: '', favourite: '2'}
     ]);
 }
- 
 ko.applyBindings(new AppViewModel());
 </script>
